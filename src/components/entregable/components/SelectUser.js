@@ -12,7 +12,7 @@ export default function SelectUser({ users, setSelectUser }) {
       >
         {users.map((user) => {
           return (
-            <option key={user.id} value={user}>
+            <option key={user.id} value={user.name}>
               {user.name}
             </option>
           );

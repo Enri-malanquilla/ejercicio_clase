@@ -9,18 +9,18 @@ export default function ListaUsuarios() {
   const [users, setUsers] = useState([]);
   const [show, setShow] = useState(false);
   const [selectUser, setSelectUser] = useState({});
-  //const [one_user, setOne_user] = useState([]);
+  const [one_user, setOne_user] = useState([]);
 
   useEffect(() => {
     getUser(setUsers);
   }, []);
   console.log(selectUser);
 
-  // useEffect(() => {
-  //   setOne_user([]);
-  //   const filterUser = users.filter((user) => user.name === selectUser);
-  //   setOne_user(filterUser);
-  // }, [selectUser.length > 0]);
+  useEffect(() => {
+    setOne_user([]);
+    const filterUser = users.filter((user) => user.name === selectUser);
+    setOne_user(filterUser);
+  }, [selectUser.length > 0]);
 
   const showUsers = () => {
     !show && setSelectUser([]);
@@ -49,7 +49,7 @@ export default function ListaUsuarios() {
             </li>
           ))}
       </ul>
-      {Object.keys(selectUser) && (
+      {one_user.length > 0 && (
         <Usuario
           name={selectUser.name}
           username={selectUser.username}
