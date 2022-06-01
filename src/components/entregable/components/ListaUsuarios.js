@@ -10,11 +10,12 @@ export default function ListaUsuarios() {
   const [show, setShow] = useState(false);
   const [selectUser, setSelectUser] = useState({});
   const [one_user, setOne_user] = useState([]);
-
+  //connection
   useEffect(() => {
     getUser(setUsers);
     console.log('useeffect');
   }, []);
+  //select user from form
   useEffect(() => {
     setOne_user([]);
     const filterUser = users.filter((user) => user.name === selectUser);
