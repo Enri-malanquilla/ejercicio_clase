@@ -8,18 +8,19 @@ import SelectUser from './SelectUser';
 export default function ListaUsuarios() {
   const [users, setUsers] = useState([]);
   const [show, setShow] = useState(false);
-  const [selectUser, setSelectUser] = useState([]);
-  const [one_user, setOne_user] = useState([]);
+  const [selectUser, setSelectUser] = useState({});
+  //const [one_user, setOne_user] = useState([]);
 
   useEffect(() => {
     getUser(setUsers);
   }, []);
   console.log(selectUser);
 
-  useEffect(() => {
-    const filterUser = users.filter((user) => user.name === selectUser);
-    setOne_user(filterUser);
-  }, [selectUser.length > 0]);
+  // useEffect(() => {
+  //   setOne_user([]);
+  //   const filterUser = users.filter((user) => user.name === selectUser);
+  //   setOne_user(filterUser);
+  // }, [selectUser.length > 0]);
 
   const showUsers = () => {
     !show && setSelectUser([]);
@@ -48,12 +49,12 @@ export default function ListaUsuarios() {
             </li>
           ))}
       </ul>
-      {one_user.length > 0 && (
+      {Object.keys(selectUser) && (
         <Usuario
-          name={one_user[0].name}
-          username={one_user[0].username}
-          email={one_user[0].email}
-          web={one_user[0].website}
+          name={selectUser.name}
+          username={selectUser.username}
+          email={selectUser.email}
+          web={selectUser.website}
         />
       )}
     </section>
