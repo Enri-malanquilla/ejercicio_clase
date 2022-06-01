@@ -13,27 +13,30 @@ export default function ListaUsuarios() {
 
   useEffect(() => {
     getUser(setUsers);
+    console.log('useeffect');
   }, []);
-  console.log(selectUser);
-
   useEffect(() => {
     setOne_user([]);
     const filterUser = users.filter((user) => user.name === selectUser);
     setOne_user(filterUser);
-  }, [selectUser.length > 0]);
+    console.log('useeffect-2');
+  }, [selectUser[0]]);
 
   const showUsers = () => {
     !show && setSelectUser([]);
     return setShow(!show);
   };
+  console.log('jsx');
 
   return (
     <section>
       <h1>lista usuarios</h1>
       <button onClick={showUsers}>{show ? 'Ocultar' : 'Mostrar'}</button>
 
-      {users.length > 0 && (
+      {users.length > 0 ? (
         <SelectUser users={users} setSelectUser={setSelectUser} />
+      ) : (
+        <p>cargando....</p>
       )}
       <ul>
         {show &&
@@ -51,10 +54,10 @@ export default function ListaUsuarios() {
       </ul>
       {one_user.length > 0 && (
         <Usuario
-          name={selectUser.name}
-          username={selectUser.username}
-          email={selectUser.email}
-          web={selectUser.website}
+          name={one_user[0].name}
+          username={one_user[0].username}
+          email={one_user[0].email}
+          web={one_user[0].website}
         />
       )}
     </section>
