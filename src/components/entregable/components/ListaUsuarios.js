@@ -22,7 +22,7 @@ export default function ListaUsuarios() {
     setOne_user(filterUser);
     console.log('useeffect-2');
   }, [selectUser[0]]);
-
+  //handle function of button
   const showUsers = () => {
     !show && setSelectUser([]);
     return setShow(!show);
