@@ -1,10 +1,10 @@
-import "./SelectUser.css";
+import "./styles/UserSelect.css";
 
 export default function SelectUser({ users, setSelectUser }) {
-  //"form" of users of API
+  //Generate select
   return (
-    <div>
-      <label htmlFor='user_select'>Elije Usuario:</label>
+    <div className="selectZone">
+      <label htmlFor='user_select'><h3>Elige usuario:</h3></label>
 
       <select
         name='user_select'
@@ -13,6 +13,7 @@ export default function SelectUser({ users, setSelectUser }) {
           setSelectUser(e.target.value);
         }}
       >
+        <option selected></option>
         {users.map((user) => {
           return (
             <option key={user.id} value={user.name}>

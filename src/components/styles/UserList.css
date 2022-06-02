@@ -9,7 +9,7 @@ section >h1{
     text-transform: uppercase;
     text-align: center;
     margin-top: 20px;
-    height: 60px;
+    height: 40px;
 }
 
 section >div{
@@ -25,13 +25,15 @@ button {
     overflow: hidden;
     background-color: transparent;
     text-align: center;
-    text-transform: uppercase;
     font-size: 16px;
     transition: .3s;
     z-index: 1;
     font-family: inherit;
     color: #17C3B2;
-    width: 140px;
+    width: 200px;
+    line-height: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
    }
    
    button::before {
@@ -56,3 +58,10 @@ button {
     color: #111;
    }
    
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    list-style: none;
+}

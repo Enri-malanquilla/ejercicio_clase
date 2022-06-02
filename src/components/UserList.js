@@ -1,26 +1,29 @@
 import { useEffect, useState } from 'react';
-import './ListaUsuarios.css'
-import getUser from './helpers/getUser';
+import './styles/UserList.css'
+import getUser from '../helpers/getUser';
 
-import Usuario from './Usuario';
-import SelectUser from './SelectUser';
+import Usuario from './User';
+import SelectUser from './UserSelect';
 
 export default function ListaUsuarios() {
   const [users, setUsers] = useState([]);
   const [show, setShow] = useState(false);
   const [selectUser, setSelectUser] = useState('');
   const [one_user, setOne_user] = useState([]);
-  //connection
+  
+  //connection (async)
   useEffect(() => {
     getUser(setUsers);
   }, []);
-  //select user from form
+  
+ //This shows the selected option 
   useEffect(() => {
     setOne_user([]);
     const filterUser = users.filter((user) => user.name === selectUser);
     setOne_user(filterUser);
   }, [selectUser, users]);
-  //handle function of button
+  
+  //Show all users
   const showUsers = () => {
     !show && setSelectUser([]);
     return setShow(!show);
@@ -28,9 +31,7 @@ export default function ListaUsuarios() {
 
   return (
     <section>
-      
       <h1>lista usuarios</h1>
-      <button onClick={showUsers}>{show ? 'Ocultar' : 'Mostrar'}</button>
       <div>
         {users.length > 0 ? (
           <SelectUser users={users} setSelectUser={setSelectUser} />
@@ -38,6 +39,7 @@ export default function ListaUsuarios() {
           <p>cargando....</p>
         )}
       </div>
+      <button onClick={showUsers}>{show ? 'Ocultar' : 'Mostrar todos'}</button>
       
       <ul>
         {show &&
