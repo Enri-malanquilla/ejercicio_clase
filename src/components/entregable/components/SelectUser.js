@@ -1,4 +1,5 @@
 export default function SelectUser({ users, setSelectUser }) {
+  //"form" of users of API
   return (
     <>
       <label htmlFor='user_select'>Elije Usuario:</label>
