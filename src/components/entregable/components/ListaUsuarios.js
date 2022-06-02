@@ -28,14 +28,17 @@ export default function ListaUsuarios() {
 
   return (
     <section>
+      
       <h1>lista usuarios</h1>
       <button onClick={showUsers}>{show ? 'Ocultar' : 'Mostrar'}</button>
-
-      {users.length > 0 ? (
-        <SelectUser users={users} setSelectUser={setSelectUser} />
-      ) : (
-        <p>cargando....</p>
-      )}
+      <div>
+        {users.length > 0 ? (
+          <SelectUser users={users} setSelectUser={setSelectUser} />
+        ) : (
+          <p>cargando....</p>
+        )}
+      </div>
+      
       <ul>
         {show &&
           selectUser.length < 1 &&

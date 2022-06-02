@@ -1,7 +1,9 @@
+import "./SelectUser.css";
+
 export default function SelectUser({ users, setSelectUser }) {
   //"form" of users of API
   return (
-    <>
+    <div>
       <label htmlFor='user_select'>Elije Usuario:</label>
 
       <select
@@ -19,6 +21,6 @@ export default function SelectUser({ users, setSelectUser }) {
           );
         })}
       </select>
-    </>
+    </div>
   );
 }

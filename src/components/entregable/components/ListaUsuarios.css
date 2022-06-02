@@ -1,11 +1,10 @@
 section {
     display: flex;
     flex-direction: column;
-    width: 20vw;
+    width: 60vw;
     margin: 20px;
 }
-
-section h1{
+section >h1{
     text-transform: uppercase;
     text-align: center;
     margin-top: 20px;
@@ -13,14 +12,18 @@ section h1{
     display: block;
 }
 
-section button{
+section >button{
     padding: 10px 10px;
     width: 100px;
     align-self: center;
 }
 
-@media only screen and (max-width: 600px) {
-    section {
-        width: 50vw;
-    }
+section >div{
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+}
+
+article{
+    
 }

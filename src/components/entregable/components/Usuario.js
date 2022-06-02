@@ -1,5 +1,5 @@
 import WebUser from './WebUser';
-
+import "./Usuario.css"
 export default function Usuario({ name, username, web, email }) {
   return (
     <article>
