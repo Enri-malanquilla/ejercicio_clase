@@ -8,26 +8,23 @@ import SelectUser from './SelectUser';
 export default function ListaUsuarios() {
   const [users, setUsers] = useState([]);
   const [show, setShow] = useState(false);
-  const [selectUser, setSelectUser] = useState({});
+  const [selectUser, setSelectUser] = useState('');
   const [one_user, setOne_user] = useState([]);
   //connection
   useEffect(() => {
     getUser(setUsers);
-    console.log('useeffect');
   }, []);
   //select user from form
   useEffect(() => {
     setOne_user([]);
     const filterUser = users.filter((user) => user.name === selectUser);
     setOne_user(filterUser);
-    console.log('useeffect-2');
-  }, [selectUser[0]]);
+  }, [selectUser, users]);
   //handle function of button
   const showUsers = () => {
     !show && setSelectUser([]);
     return setShow(!show);
   };
-  console.log('jsx');
 
   return (
     <section>

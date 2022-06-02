@@ -1,4 +1,5 @@
 export default function WebUser({ web, name }) {
+  //join web for iframe
   const webJoined = `https://www.${web}`;
   return (
     <>
