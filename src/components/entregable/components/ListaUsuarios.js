@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import './ListaUsuarios.css'
 import getUser from './helpers/getUser';
 
 import Usuario from './Usuario';
